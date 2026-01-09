@@ -24,8 +24,8 @@ class FileSplitterGUI:
         tk.Label(mode_frame, text="Select Mode:", font=("Arial", 12, "bold")).pack()
 
         # Mode 1: Split file into 10 parts
-        mode1_frame = tk.Frame(root, relief=tk.RIDGE, borderwidth=2, padx=20, pady=15)
-        mode1_frame.pack(pady=10, padx=20, fill=tk.BOTH)
+        mode1_frame = tk.Frame(root, relief=tk.RIDGE, borderwidth=2, padx=20, pady=15) # type:ignore
+        mode1_frame.pack(pady=10, padx=20, fill=tk.BOTH) # type:ignore
 
         tk.Label(mode1_frame, text="Mode 1: Split File",
                  font=("Arial", 12, "bold")).pack()
@@ -40,8 +40,8 @@ class FileSplitterGUI:
         self.split_button.pack(pady=5)
 
         # Mode 2: Process WLOCK and EVENT_COUNT files
-        mode2_frame = tk.Frame(root, relief=tk.RIDGE, borderwidth=2, padx=20, pady=15)
-        mode2_frame.pack(pady=10, padx=20, fill=tk.BOTH)
+        mode2_frame = tk.Frame(root, relief=tk.RIDGE, borderwidth=2, padx=20, pady=15) # type:ignore
+        mode2_frame.pack(pady=10, padx=20, fill=tk.BOTH) # type:ignore
 
         tk.Label(mode2_frame, text="Mode 2: Process WLOCK & EVENT_COUNT",
                  font=("Arial", 12, "bold")).pack()
@@ -256,7 +256,7 @@ class FileSplitterGUI:
 
             # Extract the subset (accounting for 0-based indexing)
             subset_df = merged_df.iloc[start - 1:end]
-            subset_df.to_csv(output_file, index=False)
+            subset_df[['PACK']].to_csv(output_file, index=False, header=False)
 
         return output_dir
 
